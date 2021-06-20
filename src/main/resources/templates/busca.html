@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
+
+</head>
+<body>
+	<nav class="navbar navbar-light" style="background-color: #969bd9;">
+		<a th:href="@{/}" href="#" class="navbar-brand">Home Page</a>
+	
+		<div id="navbar" class="collapse navbar-collapse">
+		</button>
+			<a class="navbar-brand" href="#" th:href="@{/}">Registration and
+				Login Module</a>
+		</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<br>
+	<div class="container" style="max-width: 350px; margin: 0 auto;">
+		<h3>BUSCAR!</h3>
+		<p>
+			Welcome <span sec:authentication="principal.email">User</span>
+		</p>
+	</div>
+	<table>
+		<th:block th:each="game : ${results}">
+		   <tr>
+			  <td th:text="${game.getName()}">...</td>
+			  <td th:text="${game.getName()}">...</td>
+		   </tr>
+		</th:block>
+	 </table>
+
+	 <br>
+	 <br>
+
+	 <form method="post" th:object="${id}" th:action="@{/result}">
+		<input type="text" tth:name="id" th:value="${id}" name="id" placeholder="Id"/>
+		<button type="submit">procurar</button>
+	</form>
+
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
