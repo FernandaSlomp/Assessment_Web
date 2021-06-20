@@ -48,10 +48,13 @@
 	 <br>
 	 <br>
 
-	 <form method="post" th:object="${id}" th:action="@{/result}">
-		<input type="text" tth:name="id" th:value="${id}" name="id" placeholder="Id"/>
-		<button type="submit">procurar</button>
-	</form>
+	 <form th:action="@{/result}" method="post" th:object="${id}">
+		<div>
+			<label for="palavra">Palavra-chave: </label>
+			<input type="text" th:field="*{palavra}" th:name="id">
+			<input type="submit" value="Enviar">
+		</div>
+	 </form>
 
 	<script type="text/javascript"
 		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>

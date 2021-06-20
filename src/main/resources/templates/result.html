@@ -36,14 +36,14 @@
 			Welcome <span sec:authentication="principal.email">User</span>
 		</p>
 	</div>
-	<table>
-		<th:block th:each="game : ${results}">
+
+	<th:block th:each="game : ${result2'''''''''}">
 		   <tr>
 			  <td th:text="${game.getName()}">...</td>
 			  <td th:text="${game.getName()}">...</td>
 		   </tr>
 		</th:block>
-	 </table>
+	
 
 	<script type="text/javascript"
 		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
